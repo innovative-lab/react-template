@@ -1,0 +1,168 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);
+
+* {
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden !important;
+}
+
+.side-nav-bar {
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  background-color: #ccc;
+  overflow: hidden;
+}
+
+.company-logo-closed {
+  width: 70px !important;
+  -webkit-animation-name: closeLogo; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-name: closeLogo;
+  animation-duration: 1s;
+}
+
+@keyframes closeLogo {
+  0% {
+    width: 200px;
+  }
+  100% {
+    width: 70px;
+  }
+}
+
+@-webkit-keyframes closeLogo {
+  0% {
+    width: 200px;
+  }
+  100% {
+    width: 70px;
+  }
+}
+
+.company-logo-open {
+  width: 200px;
+  -webkit-animation-name: openedLogo; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  animation-name: openedLogo;
+  animation-duration: 1s;
+}
+
+@keyframes openedLogo {
+  0% {
+    width: 70px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+
+@-webkit-keyframes openedLogo {
+  0% {
+    width: 70px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+.side-nav-bar {
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  background-color: #ccc;
+}
+
+.side-nav-bar-closed {
+  width: 70px;
+  -webkit-animation-name: close; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-name: close;
+  animation-duration: 1s;
+}
+
+@keyframes close {
+  0% {
+    width: 200px;
+  }
+  100% {
+    width: 70px;
+  }
+}
+
+@-webkit-keyframes close {
+  0% {
+    width: 200px;
+  }
+  100% {
+    width: 70px;
+  }
+}
+
+.side-nav-bar-open {
+  width: 200px;
+  -webkit-animation-name: opened; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  animation-name: opened;
+  animation-duration: 1s;
+}
+
+@keyframes opened {
+  0% {
+    width: 70px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+
+@-webkit-keyframes opened {
+  0% {
+    width: 70px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+.menubar {
+  height: 40px;
+  width: 40px;
+  margin: auto 15px;
+}
+.rotate-left {
+  -webkit-animation-name: rotateLeft; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  animation-name: rotateLeft;
+  animation-duration: 1s;
+}
+
+@keyframes rotateLeft {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.rotate-right {
+  -webkit-animation-name: rotateRight; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  animation-name: rotateRight;
+  animation-duration: 1s;
+}
+
+@keyframes rotateRight {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}

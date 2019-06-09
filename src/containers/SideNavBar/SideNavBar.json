@@ -1,0 +1,32 @@
+{
+  "tabs": [
+    {
+      "name": "Dashboard",
+      "icon": ["fab", "apple"]
+    },
+    {
+      "name": "Tab 1",
+      "icon": ["fab", "apple"]
+    },
+    {
+      "name": "Tab 2",
+      "icon": ["fab", "microsoft"]
+    }
+    ,{
+      "name": "Tab 3",
+      "icon": ["fab", "google"]
+    }
+    ,{
+      "name": "Tab 3",
+      "icon": ["fab", "apple"]
+    },
+    {
+      "name": "Tab 4",
+      "icon": ["fab", "apple"]
+    },
+    {
+      "name": "Tab 5",
+      "icon": ["fab", "apple"]
+    }
+  ]
+}
