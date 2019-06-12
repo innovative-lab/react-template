@@ -29,9 +29,9 @@ module.exports = {
       },
     ],
   },
+  devtool: 'source-map',
   devServer: {
     contentBase: commonPaths.outputPath,
-    compress: true,
     hot: true,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],

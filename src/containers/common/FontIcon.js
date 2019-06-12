@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 class FontIcon extends React.Component {
   render() {
-    const { icon, customClass, size } = this.props;
+    const { icon, customClass, size, ...custom } = this.props;
     console.log('FontAwesomeIcon', FontAwesomeIcon);
     return (
-      <FontAwesomeIcon icon={icon} style={{ height: size, width: size }} />
+      <FontAwesomeIcon icon={icon} style={{ height: size, width: size }} {...custom}/>
     );
   }
 }

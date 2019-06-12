@@ -7,17 +7,16 @@ import { withStyles } from 'material-ui/styles';
 const style = () => ({
   mainView: {
     height: '100%',
-    position: 'absolute',
     flex: 1,
   },
 });
 
 class MainView extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes, children } = this.props;
     return (
       <div className={classes.mainView}>
-        <div />
+        {children}
       </div>
     );
   }

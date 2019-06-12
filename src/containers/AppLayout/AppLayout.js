@@ -9,9 +9,9 @@ import SideNavBar from '../SideNavBar/SideNavBar';
 import '../../style/style.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare, faCoffee, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fab, faCheckSquare, faCoffee);
+library.add(fab, faCheckSquare, faCoffee, faAngleDown);
 
 const style = () => ({
   applayout: {
@@ -43,7 +43,7 @@ class Applayout extends React.Component {
     };
   }
   render() {
-    const { classes, applayout } = this.props;
+    const { classes, applayout, children, history } = this.props;
     return (
       <div className={classes.applayout}>
         <TopNavBar
@@ -51,10 +51,13 @@ class Applayout extends React.Component {
             this.setState({ openSideDrawer: !this.state.openSideDrawer })
           }
           openSideDrawer={this.state.openSideDrawer}
+          history={history}
         />
         <div className={classes.mainBody}>
-          <SideNavBar openSideDrawer={this.state.openSideDrawer} />
-          <MainView />
+          <SideNavBar openSideDrawer={this.state.openSideDrawer} history={history}/>
+          <MainView history={history}>
+            {children || ''}
+          </MainView>
         </div>
       </div>
     );
