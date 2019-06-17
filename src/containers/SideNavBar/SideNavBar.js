@@ -59,6 +59,15 @@ const style = () => ({
     backgroundColor: '#89daca',
     padding: '2px',
     width: '100%',
+  },
+  floatingNavBar:{
+    padding: '10px',
+    backgroundColor: 'cyan',
+    display: 'flex',
+    flexFlow: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    position: 'absolute',
   }
 });
 class SideNavBar extends React.Component {
@@ -67,12 +76,14 @@ class SideNavBar extends React.Component {
 
     this.state={
       tabset: [],
-      openSubTab: false,
+      openSubTab: [],
+      subTabPosition: {},
     }
   }
   componentWillMount(){
     this.setState({
-      tabset: Tabs
+      tabset: Tabs,
+      openSubTab: Array(Tabs.tabs.length)
     })
   }
   openTab(tabId){
@@ -91,8 +102,37 @@ class SideNavBar extends React.Component {
        }) 
       
   }
+
+  renderFloatingNavBar(tab){
+    const {classes, history} = this.props
+    return (
+      <div 
+        className={classes.floatingNavBar}
+        style={{left: 70, top: this.state.subTabPosition?this.state.subTabPosition.top - 55 : 0}}
+      >
+        <div onClick={tab.type === 'multiChild'?()=>{}:()=> history.push(tab.path)}>        
+          {tab.name}          
+        </div>  
+         {tab.subTabs && tab.subTabs.map(stab=>{
+                      return (
+                        <div>
+                          <div 
+                            className={classes.subTabName}
+                            onClick={()=> history.push(stab.path)}
+                          >
+                            {stab.name}
+                          </div>
+                        </div>
+                       
+                      )
+                    })}
+    </div>
+    )
+  }
   render() {
     const { classes, openSideDrawer, history } = this.props;
+
+
     return (
       <div
         className={classnames(
@@ -105,31 +145,58 @@ class SideNavBar extends React.Component {
         <div className={classnames(classes.tabsHolder, !openSideDrawer? styles['center_align']: '')}>
           {/* <FontAwesomeIcon icon={faCoffee} /> */}
           {this.state.tabset &&
-            this.state.tabset.tabs.map(itr => {
+            this.state.tabset.tabs.map((itr,i) => {
               return (
                 <div className={classes.tab}>
-                  <div className={classes.tabHead}>
-                    <FontIcon icon={itr.icon} size={20} className={openSideDrawer? styles['fadeIn']: ""}/>
-                  
+                  <div 
+                    className={classes.tabHead}
+                    onMouseOver ={(e)=> {
+
+                      if(true){
+                        let openSubTabCopy = this.state.openSubTab
+                        openSubTabCopy[i] = true
+                      this.setState({
+                        subTabPosition: e.currentTarget.getBoundingClientRect(),
+                        openSubTab: [...openSubTabCopy],
+                      })
+                      console.log('hovering', e.currentTarget.getBoundingClientRect())}
+                    }}
+                    onMouseLeave = {()=>{
+                      let openSubTabCopy = this.state.openSubTab
+                      openSubTabCopy[i] = false
+                      this.setState({
+                        subTabPosition: {},
+                        openSubTab: [...openSubTabCopy]
+                      })
+                    }}
+                    >
+                    <FontIcon 
+                      icon={itr.icon} 
+                      size={20} 
+                      className={openSideDrawer? styles['fadeIn']: ""}
+                    />
+                    {this.state.openSubTab[i] && this.state.openSubTab && !openSideDrawer && this.renderFloatingNavBar(itr)}
                     <span 
                       className={classnames(classes.tabHeading,
                         openSideDrawer? styles['fadeIn']: styles['fadeOut'])}
-                      onClick={()=> history.push(itr.path)}
+                      onClick={itr.type==='multiChild'?()=> this.openTab(itr.id):()=> history.push(itr.path)}
                     >
                       {itr.name}
                     </span>
                     <div className={styles['flex-grow']}/>
-                    {itr.type === 'multiChild' && (
+                    {itr.type === 'multiChild' && openSideDrawer && (
                       <span className={itr.isOpen ? styles['rotate-right']: styles['rotate-left']}>
                         <FontIcon icon={'angle-down'} onClick={()=> this.openTab(itr.id)}/>
                       </span>
                     )}
                   </div>
                   
-                  <div className={classnames(classes.subTab, itr.isOpen? styles['dropdown']: styles['dropup'])}>
+                  <div className={classnames(classes.subTab, (itr.isOpen && openSideDrawer )? styles['dropdown']: styles['dropup'])}>
                     {itr.subTabs && itr.subTabs.length && itr.subTabs.map(stab=>{
                       return (
-                        <div className={classes.subTabName}>
+                        <div className={classes.subTabName}
+                        onClick={()=> history.push(stab.path)}
+                        >
                           {stab.name}
                         </div>
                       )

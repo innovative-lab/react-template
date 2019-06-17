@@ -39,7 +39,7 @@ class Applayout extends React.Component {
     super(props);
 
     this.state = {
-      openSideDrawer: true,
+      openSideDrawer: null,
     };
   }
   render() {

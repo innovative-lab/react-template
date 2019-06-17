@@ -31,13 +31,16 @@
       "path": "./dashboard",
       "subTabs": [
         {
-          "name": "subTab 1"
+          "name": "subTab 1",
+          "path": "./tab1"
         },
         {
-          "name": "subTab 2"
+          "name": "subTab 2",
+          "path": "./tab1"
         },
         {
-          "name": "subTab 3"
+          "name": "subTab 3",
+          "path": "./tab1"
         }
       ],
       "icon": ["fab", "google"],
@@ -46,10 +49,24 @@
     ,{
       "id": 5,
       "name": "Tab 3",
-      "type": "",
+      "type": "multiChild",
       "icon": ["fab", "apple"],
       "isOpen": false,
-      "path": "./dashboard"
+      "path": "./dashboard",
+      "subTabs": [
+        {
+          "name": "subTab 4",
+          "path": "./dashboard"
+        },
+        {
+          "name": "subTab 5",
+          "path": "./dashboard"
+        },
+        {
+          "name": "subTab 6",
+          "path": "./dashboard"
+        }
+      ]
     },
     {
       "id": 6,
