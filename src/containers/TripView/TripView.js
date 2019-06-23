@@ -8,13 +8,13 @@ import { withStyles } from 'material-ui/styles';
 //   }
 // })
 
-class Tab1 extends React.Component{
+class TripView extends React.Component{
   render(){
   
     return (
-      <div >This is Tab1</div>
+      <div >This is TripView</div>
     )
   }
 }
 
-export default withStyles()(Tab1)
+export default withStyles()(TripView)

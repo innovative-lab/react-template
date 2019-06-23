@@ -1,10 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import { withStyles } from 'material-ui/styles';
-import MenuIcon from 'material-ui-icons/Menu';
+//import MenuIcon from 'material-ui-icons/Menu';
 
-import MenuBar from '../../../assets/image/baseline-menu-24px.svg';
-import styles from '../../style/style.css';
+import MenuBar from '../../assets/image/baseline-menu-24px.svg';
+//import styles from '../../style/style.css';
 
 const style = () => ({
   topNavBar: {
@@ -14,13 +14,22 @@ const style = () => ({
     flexFlow: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: '#379683',
+    backgroundColor: '#dd3333',
   },
   companyLogoHolder: {
     width: 200,
     height: '100%',
-    backgroundColor: 'whitesmoke',
+    backgroundColor: '#bf090',
   },
+  autotat :{
+    textDecoration: 'none',
+      display: 'block',
+      textAlign: 'center',
+      lineHeight: '57px',
+      fontSize: '20px',
+      color: 'white',
+      
+  }
 });
 class TopNavBar extends React.Component {
   render() {
@@ -31,17 +40,20 @@ class TopNavBar extends React.Component {
           className={classnames(
             classes.companyLogoHolder,
             openSideDrawer
-              ? styles['company-logo-open']
-              : styles['company-logo-closed'],
-          )}
-        />
+              ? 'company-logo-open'
+              : 'company-logo-closed',
+          )} 
+        >
+           <p  className={classes.autotat}>{openSideDrawer?'AutoTAT':'ATAT'}</p>
+        </div>
         <div onClick={() => toggleSideNav()}>
           <img
             className={classnames(
-              styles['menubar'],
-              openSideDrawer ? styles['rotate-right'] : styles['rotate-left'],
+             'menubar',
+              openSideDrawer ? 'rotate-right' : 'rotate-left',
             )}
             src={MenuBar}
+            alt=''
           />
           <i className="fa fa-star" style={{ height: 100, width: 100 }} />
         </div>

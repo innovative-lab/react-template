@@ -1,6 +1,5 @@
 import React from 'react'
 import { withStyles } from 'material-ui/styles';
-import './Dashboard.css';
 //import { classes } from 'istanbul-lib-coverage';
 
 // const styles= ()=>({
@@ -9,14 +8,13 @@ import './Dashboard.css';
 //   }
 // })
 
-class Dashboard extends React.Component{
+class Tab2 extends React.Component{
   render(){
     //const {classes} = this.props
     return (
-      // <div className={classes.dashboardContainer}>This is Dashboard</div>
-      <div className='Dashboard'>This is Dashboard</div>
+      <div >This is Tab2</div>
     )
   }
 }
 
-export default withStyles()(Dashboard)
+export default withStyles()(Tab2)

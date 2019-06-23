@@ -5,6 +5,7 @@
 }
 body {
   overflow: hidden !important;
+  margin:auto;
 }
 
 .side-nav-bar {
@@ -13,8 +14,10 @@ body {
   display: flex;
   flex-flow: row;
   justify-content: center;
-  background-color: #ccc;
+  background-color: #222d32;
   overflow: hidden;
+  color:#bcbfc4;
+  font-size:14px;
 }
 
 .company-logo-closed {
@@ -75,7 +78,9 @@ body {
   display: flex;
   flex-flow: row;
   justify-content: center;
-  background-color: #ccc;
+  background-color: #222d32;
+  color:#bcbfc4;
+  font-size:14px;
 }
 
 .side-nav-bar-closed {

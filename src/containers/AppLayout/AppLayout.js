@@ -1,10 +1,12 @@
 import React from 'react';
-import { withStyles } from 'material-ui/styles';
+//import { withStyles } from 'material-ui/styles';
 
 // import { classes } from 'istanbul-lib-coverage';
 import TopNavBar from '../TopNavBar/TopNavBar';
 import MainView from '../MainVIew/MainView';
 import SideNavBar from '../SideNavBar/SideNavBar';
+
+import './AppLayout.css';
 
 import '../../style/style.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -13,39 +15,39 @@ import { faCheckSquare, faCoffee, faAngleDown } from '@fortawesome/free-solid-sv
 
 library.add(fab, faCheckSquare, faCoffee, faAngleDown);
 
-const style = () => ({
-  applayout: {
-    margin: '0 !important',
-    padding: '0 !important',
-    boxSizing: 'border-box',
-    position: 'relative',
-    height: '100vh',
-    width: '100vw',
-    overflow: 'hidden',
-    textAlign: 'center',
-    margin: '-8px',
-    fontFamily: 'Roboto, sans-serif',
-  },
-  mainBody: {
-    position: 'relative',
-    height: '100%',
-    display: 'flex',
-    flexFlow: 'row',
-  },
-});
+// const style = () => ({
+//   applayout: {
+//     margin: '0 !important',
+//     padding: '0 !important',
+//     boxSizing: 'border-box',
+//     position: 'relative',
+//     height: '100vh',
+//     width: '100vw',
+//     overflow: 'hidden',
+//     textAlign: 'center',
+//     //margin: '-8px',
+//     fontFamily: 'Roboto, sans-serif',
+//   },
+
+// });
 
 class Applayout extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      openSideDrawer: null,
+      openSideDrawer: true,
     };
   }
+  componentWillMount() {
+    const activePath = this.props.location.pathname
+   console.log('willmount appjs',this.props)
+   
+  }
   render() {
-    const { classes, applayout, children, history } = this.props;
+    const { children, history } = this.props;
     return (
-      <div className={classes.applayout}>
+      <div className='AppLayout'>
         <TopNavBar
           toggleSideNav={() =>
             this.setState({ openSideDrawer: !this.state.openSideDrawer })
@@ -53,7 +55,7 @@ class Applayout extends React.Component {
           openSideDrawer={this.state.openSideDrawer}
           history={history}
         />
-        <div className={classes.mainBody}>
+        <div className='mainBody'>
           <SideNavBar openSideDrawer={this.state.openSideDrawer} history={history}/>
           <MainView history={history}>
             {children || ''}
@@ -64,4 +66,4 @@ class Applayout extends React.Component {
   }
 }
 
-export default withStyles(style)(Applayout);
+export default Applayout;

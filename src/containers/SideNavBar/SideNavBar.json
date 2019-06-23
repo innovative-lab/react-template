@@ -6,41 +6,50 @@
       "type": "",
       "icon": ["fab", "apple"],
       "isOpen": false,
-      "path": "./dashboard"
+      "path": "./dashboard",
+      "isActive": true
     },
     {
       "id": 2,
-      "name": "Tab 1",
+      "name": "Trip View",
       "type": "",
       "icon": ["fab", "apple"],
       "isOpen": false,
-      "path": "./tab1"
+      "path": "./trip-view",
+      "isActive": false
     },
     {
       "id": 3,
-      "name": "Tab 2",
+      "name": "Vehicle View",
       "type": "",
       "icon": ["fab", "microsoft"],
       "isOpen": false,
-      "path": "./500"
+      "path": "./vehicle-view",
+      "isActive": false
     }
     ,{
       "id": 4,
-      "name": "Tab 3",
+      "name": "Configuration",
       "type": "multiChild",
-      "path": "./dashboard",
+      "path": "",
       "subTabs": [
         {
-          "name": "subTab 1",
-          "path": "./tab1"
+          "name": "Trip Configuration",
+          "path": "./tripConfiguration",
+          "isActive": false,
+          "id": 1
         },
         {
           "name": "subTab 2",
-          "path": "./tab1"
+          "path": "./tab111",
+          "isActive": false,
+          "id": 2
         },
         {
           "name": "subTab 3",
-          "path": "./tab1"
+          "path": "./tab1",
+          "isActive": false,
+          "id": 3
         }
       ],
       "icon": ["fab", "google"],
@@ -52,19 +61,25 @@
       "type": "multiChild",
       "icon": ["fab", "apple"],
       "isOpen": false,
-      "path": "./dashboard",
+      "path": "./u",
       "subTabs": [
         {
           "name": "subTab 4",
-          "path": "./dashboard"
+          "path": "./ty",
+          "isActive": false,
+          "id": 1
         },
         {
           "name": "subTab 5",
-          "path": "./dashboard"
+          "path": "./tab6",
+          "isActive": false,
+          "id":2
         },
         {
           "name": "subTab 6",
-          "path": "./dashboard"
+          "path": "./tab8",
+          "isActive": false,
+          "id": 3
         }
       ]
     },
@@ -74,7 +89,8 @@
       "type": "",
       "icon": ["fab", "apple"],
       "isOpen": false,
-      "path": "./dashboard"
+      "path": "./tab",
+      "isActive": false
     },
     {
       "id": 7,
@@ -82,7 +98,8 @@
       "type": "",
       "icon": ["fab", "apple"],
       "isOpen": false,
-      "path": "./dashboard"
+      "path": "./tab",
+      "isActive": false
     }
   ]
 }
