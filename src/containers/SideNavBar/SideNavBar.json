@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Dashboard",
       "type": "",
-      "icon": ["fab", "apple"],
+      "icon": "tachometer-alt",
       "isOpen": false,
       "path": "./dashboard",
       "isActive": true
@@ -13,7 +13,7 @@
       "id": 2,
       "name": "Trip View",
       "type": "",
-      "icon": ["fab", "apple"],
+      "icon": "map-marked-alt",
       "isOpen": false,
       "path": "./trip-view",
       "isActive": false
@@ -22,12 +22,12 @@
       "id": 3,
       "name": "Vehicle View",
       "type": "",
-      "icon": ["fab", "microsoft"],
+      "icon": "truck",
       "isOpen": false,
       "path": "./vehicle-view",
       "isActive": false
-    }
-    ,{
+    },
+    {
       "id": 4,
       "name": "Configuration",
       "type": "multiChild",
@@ -37,57 +37,34 @@
           "name": "Trip Configuration",
           "path": "./tripConfiguration",
           "isActive": false,
-          "id": 1
+          "id": 1,
+          "icon":"sliders-h"
         },
         {
-          "name": "subTab 2",
-          "path": "./tab111",
+          "name": "vehicle reg scheme",
+          "path": "./vehicle-reg-scheme",
           "isActive": false,
-          "id": 2
+          "id": 2,
+          "icon":"truck-moving"
+         
         },
         {
           "name": "subTab 3",
           "path": "./tab1",
           "isActive": false,
-          "id": 3
+          "id": 3,
+          "icon":"truck-moving"
+         
         }
       ],
-      "icon": ["fab", "google"],
+      "icon":"sliders-h",
       "isOpen": false
-    }
-    ,{
-      "id": 5,
-      "name": "Tab 3",
-      "type": "multiChild",
-      "icon": ["fab", "apple"],
-      "isOpen": false,
-      "path": "./u",
-      "subTabs": [
-        {
-          "name": "subTab 4",
-          "path": "./ty",
-          "isActive": false,
-          "id": 1
-        },
-        {
-          "name": "subTab 5",
-          "path": "./tab6",
-          "isActive": false,
-          "id":2
-        },
-        {
-          "name": "subTab 6",
-          "path": "./tab8",
-          "isActive": false,
-          "id": 3
-        }
-      ]
     },
     {
       "id": 6,
       "name": "Tab 4",
       "type": "",
-      "icon": ["fab", "apple"],
+      "icon": "tachometer-alt",
       "isOpen": false,
       "path": "./tab",
       "isActive": false
@@ -96,7 +73,7 @@
       "id": 7,
       "name": "Tab 5",
       "type": "",
-      "icon": ["fab", "apple"],
+      "icon": "tachometer-alt",
       "isOpen": false,
       "path": "./tab",
       "isActive": false

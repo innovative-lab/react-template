@@ -11,9 +11,23 @@ import './AppLayout.css';
 import '../../style/style.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare, faCoffee, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fab, faCheckSquare, faCoffee, faAngleDown);
+import { fas } from '@fortawesome/free-solid-svg-icons';
+// import { far } from '@fortawesome/free-regular-svg-icons';
+import {
+   faCheckSquare, 
+  faCoffee, 
+  faAngleDown,
+  faBell,
+  faUser,
+  faCog,
+  faArrowRight,
+  faExclamationTriangle
+ } from '@fortawesome/free-solid-svg-icons';
+
+library.add(fab, faCheckSquare, faCoffee, faAngleDown,faArrowRight,faBell,faUser,faCog);
+library.add(fas,faExclamationTriangle);
+// library.add(far);
 
 // const style = () => ({
 //   applayout: {
@@ -39,11 +53,7 @@ class Applayout extends React.Component {
       openSideDrawer: true,
     };
   }
-  componentWillMount() {
-    const activePath = this.props.location.pathname
-   console.log('willmount appjs',this.props)
-   
-  }
+  
   render() {
     const { children, history } = this.props;
     return (

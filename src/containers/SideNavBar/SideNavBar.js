@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 import { withStyles } from 'material-ui/styles';
 //import styles from '../../style/style.css';
@@ -19,18 +19,18 @@ const style = () => ({
     display: 'flex',
     flexFlow: 'column',
     alignItems: 'center',
-    fontFamily: 'roboto',
     whiteSpace: 'nowrap',
     width: '100%',
     margin: '5px 0 0 0',
     //padding: 5,
-    "&:hover":{
-      backgroundColor: '#3b3c3d',
+    "&:hover": {
+      backgroundColor: '#4d5968',
     }
   },
-  activeTab:{
-    borderLeft: '3px solid white',
-    color: 'white',
+  activeTab: {
+    borderLeft: '1px solid #dd3333',
+    backgroundColor: '#4d5968',
+   
   },
   subTab: {
     display: 'flex',
@@ -38,21 +38,22 @@ const style = () => ({
     alignItems: 'flex-start',
     justifyContent: 'center',
     margin: '5px 0 0 0',
-    fontFamily: 'roboto',
+    
     whiteSpace: 'nowrap',
     backgroundColor: '#2c3b41',
     width: '100%',
     overflow: 'hidden',
+  
   },
   tabHead: {
     display: 'flex',
     flexFlow: 'row',
     padding: '10px 10px 10px 24px',
     alignItems: 'center',
-    fontFamily: 'roboto',
     whiteSpace: 'nowrap',
     width: '100%',
     cursor: 'pointer',
+    zIndex:'9999'
   },
   tabHeading: {
     marginLeft: 10,
@@ -61,10 +62,8 @@ const style = () => ({
     display: 'flex',
     flexFlow: 'column',
     alignItems: 'flex-start',
-    //padding: '10px 10px 10px 24px',
     justifyContent: 'center',
     margin: '5px 2px',
-    //backgroundColor: '#89daca',
     padding: '2px',
     width: '100%',
     cursor: 'pointer'
@@ -99,8 +98,8 @@ class SideNavBar extends React.Component {
       openSubTab: Array(Tabs.tabs.length)
     })
   }
-  componentDidMount () {
-    console.log("side",this.props.history.location.pathname)
+  componentDidMount() {
+    console.log("side", this.props.history.location.pathname)
     const activePath = `.${this.props.history.location.pathname}`
     this.setState({
       ...this.state,
@@ -109,17 +108,17 @@ class SideNavBar extends React.Component {
         tabs: this.state.tabset.tabs.map(itm => {
           if (itm.path === activePath) {
             itm.isActive = true
-          }  else {
-            
-          itm.isActive = false
+          } else {
+
+            itm.isActive = false
           }
           return itm
-          
+
         }),
       },
       tabs: this.state.tabset.tabs.map(itm => {
-        if(itm.subTabs){
-          itm.subTabs.map(item=>{
+        if (itm.subTabs) {
+          itm.subTabs.map(item => {
             if (item.path === activePath) {
               item.isActive = true
             } else {
@@ -127,8 +126,8 @@ class SideNavBar extends React.Component {
             }
             return item
           })
-        } 
-      
+        }
+
       }),
     })
   }
@@ -193,8 +192,8 @@ class SideNavBar extends React.Component {
           {this.state.tabset &&
             this.state.tabset.tabs.map((itr, i) => {
               return (
-                <div 
-                  className={classnames(classes.tab, itr.isActive ? classes.activeTab: '')}
+                <div
+                  className={classnames(classes.tab, itr.isActive ? classes.activeTab : '')}
                   onClick={itr.type === 'multiChild' ? () => this.openTab(itr.id) : () => {
                     this.setState({
                       ...this.state,
@@ -203,9 +202,17 @@ class SideNavBar extends React.Component {
                         tabs: this.state.tabset.tabs.map(itm => {
                           if (itm.id === itr.id) {
                             itm.isActive = true
-                          } else {
+                          }
+                          else {
                             itm.isActive = false
                           }
+                          if (itm.subTabs) {
+                            itm.subTabs.map(item => {
+                              item.isActive = false
+                              return item
+                            })
+                          }
+
                           return itm
                         }),
                       }
@@ -238,7 +245,7 @@ class SideNavBar extends React.Component {
                   >
                     <FontIcon
                       icon={itr.icon}
-                      size={20}
+                      size={18}
                       className={openSideDrawer ? 'fadeIn' : ""}
 
                     />
@@ -260,16 +267,17 @@ class SideNavBar extends React.Component {
                   <div className={classnames(classes.subTab, (itr.isOpen && openSideDrawer) ? 'dropdown' : 'dropup')}>
                     {itr.isOpen && itr.subTabs && itr.subTabs.length && itr.subTabs.map(stab => {
                       return (
-                        <div className={classnames(classes.subTabName, stab.isActive ? classes.activeTab:'')}
+                        // <div className={classnames(classes.subTabName, stab.isActive ? classes.activeTab : '')}
+                        <div className={classnames(classes.subTabName)}
                           onClick={(e) => {
-                            
+
                             this.setState({
                               ...this.state,
                               tabset: {
                                 ...this.state.tabset,
                                 tabs: this.state.tabset.tabs.map(itm => {
-                                  if(itm.subTabs){
-                                    itm.subTabs.map(item=>{
+                                  if (itm.subTabs) {
+                                    itm.subTabs.map(item => {
                                       if (item.id === stab.id) {
                                         item.isActive = true
                                       } else {
@@ -277,7 +285,7 @@ class SideNavBar extends React.Component {
                                       }
                                       return item
                                     })
-                                  } 
+                                  }
                                   itm.isActive = false
                                   return itm
                                 }),
@@ -287,9 +295,19 @@ class SideNavBar extends React.Component {
                             history.push(stab.path)
                             e.stopPropagation()
                           }}
-                            
+
                         >
+                          <div>
+                          <FontIcon
+                            icon={stab.icon}
+                            size={20}
+                          />
+                          <span style={{'marginLeft':'10px'}}>
                           {stab.name}
+                          </span>
+                          </div>
+                          {/* {stab.name} */}
+
                         </div>
                       )
                     })}
